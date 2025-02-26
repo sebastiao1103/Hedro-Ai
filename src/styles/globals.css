@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  @Note: The styles for this is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #f2f1ea 100%);
+  position: absolute;
+  content: '';
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: '';
+  background-image: url('/assets/images/grid.svg');
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.background-gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(180, 100%, 60%, 1) 0px,
+      rgb(182, 111, 218) 50%
+    ),
+    radial-gradient(
+      at 97% 30%,
+      rgb(198, 126, 234) 0px,
+      hsla(330, 100%, 60%, 1) 50%
+    ),
+    radial-gradient(
+      at 52% 99%,
+      rgb(243, 70, 157) 0px,
+      hsla(330, 100%, 40%, 1) 50%
+    ),
+    radial-gradient(
+      at 10% 29%,
+      hsla(330, 100%, 40%, 1) 0px,
+      hsla(200, 100%, 40%, 1) 50%
+    ),
+    radial-gradient(
+      at 97% 96%,
+      hsla(200, 100%, 40%, 1) 0px,
+      rgb(4, 243, 243) 50%
+    );
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col;
+}
+
+.logo-text {
+  @apply pt-9 text-4xl font-extrabold leading-[1.15] sm:text-5xl;
+}
+
+.sub-logo-text {
+  @apply tracking-wide font-bold text-secondary text-center text-sm sm:text-xl mx-2;
+}
+
+.logo-teal-gradient {
+  @apply bg-gradient-to-r from-teal-600 via-orange-300 to-teal-400 bg-clip-text text-transparent;
+}
+
+.green-gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+
+.blue-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.orange-gradient {
+  @apply bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
